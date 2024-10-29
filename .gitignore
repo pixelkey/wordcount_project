@@ -60,7 +60,6 @@ Thumbs.db
 *.zip
 *.auth
 
-
 # -------------------------
 # BEGIN Whitelisted Files
 # -------------------------
@@ -93,3 +92,4 @@ docker/certs
 # track these mu-plugins, plugins, and themes e.g: !src/wp-content/themes/twentytwentyfour
 # add your own entries here
 
+!src/wp-content/plugins/wordcounter
