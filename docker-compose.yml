@@ -1,0 +1,57 @@
+services:
+  wordpress:
+    build:
+      context: .
+      args:
+        - ENABLE_SSL=${ENABLE_SSL:-false}
+        - SQUASH_DOMAIN=${SQUASH_DOMAIN:-localhost.test}
+      dockerfile: ${DOCKERFILE:-dockerfile}
+    ports:
+      - ${WORDPRESS_HTTP_PORT:-8080}:80
+      - ${WORDPRESS_HTTPS_PORT:-8443}:443
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-wpsquashdevuser}
+      WORDPRESS_DB_PASSWORD: ${PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-wpsquashdevdb}
+      WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX:-wp_}
+      SQUASH_DOMAIN: ${SQUASH_DOMAIN:-localhost.test}
+      CLEAN_DB: ${CLEAN_DB:-false}
+      LOCAL_UID: ${LOCAL_UID:-33}
+      LOCAL_GID: ${LOCAL_GID:-33}
+      WORDPRESS_VERSION: ${WORDPRESS_VERSION:-latest}
+    volumes:
+      - ./src:/var/www/html:rw
+      - ./docker/config/php/php.ini:/usr/local/etc/php/php.ini:rw
+      - ./docker/assets/db/db.sql.gz:/usr/local/bin/db.sql.gz
+
+  db:
+    image: mariadb:10.6.17
+    command: --max_allowed_packet=67108864 # Set max_allowed_packet to 512MB (or any other value)
+    restart: always
+    environment:
+      MARIADB_DATABASE: ${WORDPRESS_DB_NAME:-wpsquashdevdb}
+      MARIADB_USER: ${WORDPRESS_DB_USER:-wpsquashdevuser}
+      MARIADB_PASSWORD: ${PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${PASSWORD}
+    volumes:
+      - './data/db:/var/lib/mysql:delegated'
+      - ./docker/assets/db/db.sql.gz:/docker-entrypoint-initdb.d/db.sql.gz # Import database on first run
+    ports:
+      - 3306:3306
+
+  mailhog:
+    image: mailhog/mailhog
+    restart: always
+    ports:
+      - 1025:1025
+      - 8025:8025
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: db
+      UPLOAD_LIMIT: 64M

@@ -1,0 +1,12 @@
+deployments:
+  sandbox:
+    filename:
+      docker-compose.yml
+    context_path:
+      .
+    ready_wait: 360
+    copy_files_build_process:
+      - /assets/* ~/code/
+    subdomain_port_mapping:
+      - mailhog:8025
+      - phpmyadmin:8081
