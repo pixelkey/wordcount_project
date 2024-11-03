@@ -4,18 +4,18 @@
  * @version 0.0.1
  */
 /*
-Plugin Name: WordCounter
-Plugin URI: http://google.com/
-Description: This plugin counts the number of words in a post and displays it in a widget on the front end.
+Plugin Name: Word Counter
+Plugin URI: http://google.com
+Description: This is a plugin that counts the number of words in a post and display in the front end.
 Author: Premanshu
 Version: 0.0.1
-Author URI: http://google.com/
+Author URI: http://google.com
 */
 
 function examplefn()
 {
-    /** These are the lyrics to Hello Dolly */
-    $lyrics = "Hello, Dolly
+	/** These are the lyrics to Hello Dolly */
+	$lyrics = "Hello, Dolly
 Well, hello, Dolly
 It's so nice to have you back where you belong
 You're lookin' swell, Dolly
@@ -43,61 +43,41 @@ Dolly, never go away
 Promise, you'll never go away
 Dolly'll never go away again";
 
-    // Here we split it into lines.
-    $lyrics = explode("\n", $lyrics);
+	// Here we split it into lines.
+	$lyrics = explode("\n", $lyrics);
 
-    // And then randomly choose a line.
-    return wptexturize($lyrics[mt_rand(0, count($lyrics) - 1)]);
+	// And then randomly choose a line.
+	return wptexturize($lyrics[mt_rand(0, count($lyrics) - 1)]);
 }
 
-// This just echoes the chosen line, we'll position it later.
-function example()
-{
-    $chosen = examplefn();
-    $lang = '';
-    if ('en_' !== substr(get_user_locale(), 0, 3)) {
-        $lang = ' lang="en"';
-    }
 
-    printf(
-        '<p id="dolly"><span class="screen-reader-text">%s </span><span dir="ltr"%s>%s</span></p>',
-        __('Quote from Hello Dolly song, by Jerry Herman:'),
-        $lang,
-        $chosen
-    );
+function word_count()
+{
+	$content = get_the_content();
+	$stripped_content = strip_tags($content);
+	$stripped_content = str_replace(array("\n", "\r", "\t"), ' ', $stripped_content);
+	$word_count = str_word_count($stripped_content);
+	return $word_count;
 }
 
-// Now we set that function up to execute when the admin_notices action is called.
-add_action('admin_notices', 'example');
-
-// We need some CSS to position the paragraph.
-function example_css()
+function display_header()
 {
-    echo "
+	$count = word_count();
+	printf('<h1 class = "wcount">Total Word count is: %d</h1>', $count);
+}
+
+function count_style()
+{
+	echo "
 	<style type='text/css'>
-	#dolly {
-		float: right;
-		padding: 5px 10px;
-		margin: 0;
-		font-size: 12px;
-		line-height: 1.6666;
-	}
-	.rtl #dolly {
-		float: left;
-	}
-	.block-editor-page #dolly {
-		display: none;
-	}
-	@media screen and (max-width: 782px) {
-		#dolly,
-		.rtl #dolly {
-			float: none;
-			padding-left: 0;
-			padding-right: 0;
+		.wcount {
+			color: yellow;
+			background-color: Black;
+			text-align: center;
+			font-size: 16px;
 		}
-	}
-	</style>
-	";
+	</style>";
 }
 
-add_action('admin_head', 'example_css');
+add_action('wp_head', 'count_style');
+add_action('wp_body_open', 'display_header', -1);
