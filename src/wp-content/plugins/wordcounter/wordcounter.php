@@ -84,24 +84,55 @@ function display_header($atts)
 	<div class="wcount">Article word count is: <br><span id="counter" class= "wnumber">0</span></div>
     <script type="text/javascript">
         var counterElement = document.getElementById("counter");
-        var counter = 0;
+        
         var maxCount = ' . $count . ';
-        var duration = 2000;
+		var startTime = null;
+		var duration = 1000;
 
-		var interval = Math.max(1, Math.floor(duration / maxCount));
-
-        var timer = setInterval(function() {
-            counter++;
-			counterElement.textContent = counter;
-            if (counter >= maxCount) {
-                clearInterval(timer);
+		 function getEasingFunction(maxCount) {
+            if (maxCount <= 1) {
+                return function(t) { return t; };
+            } else {
+                return function(t) { return t * t * t; };
             }
-        }, interval);
+        }
+
+        var easingFunction = getEasingFunction(maxCount);
+		
+		function animateCounter(timestamp){
+		   if (!startTime) startTime = timestamp;
+    		var progress = timestamp - startTime;
+    		var t = Math.min(progress / duration, 1);
+    		var easedPercentage = easingFunction(t);
+    	
+			var currentCount = Math.floor(easedPercentage * (maxCount - 1)) + 1;
+			currentCount = Math.min(currentCount, maxCount);
+
+    		counterElement.textContent = currentCount.toLocaleString();
+
+	    if (progress < duration) {
+    	    requestAnimationFrame(animateCounter);
+    	} else {
+        	counterElement.textContent = maxCount.toLocaleString();
+    		}
+		}
+		requestAnimationFrame(animateCounter);
+
     </script>
     ';
 
 	return $counter;
 
+	//	var interval = Math.max(1, Math.floor(duration / maxCount));
+
+	//	var currentCount = Math.floor(easedPercentage * maxCount);
+	// var timer = setInterval(function() {
+	// 	counter++;
+	// 	counterElement.textContent = counter;
+	// 	if (counter >= maxCount) {
+	// 		clearInterval(timer);
+	// 	}
+	// }, interval);
 	//return "<div class='wcount'>Article's Word count is: <div class='wnumber' span id='num'>$count</span></div></div>";
 }
 
@@ -118,7 +149,7 @@ function count_style()
 			background-color: #f1f1f1;
 			padding-top: 10px;
 			margin-bottom: 0px;
-			color: #000;
+			color: black;
 		}
 	</style>";
 }
@@ -134,6 +165,13 @@ function number_style()
 			border-style: outset;
 			background-color: #f1f1f1;
 			padding-bottom: 10px;
+			background-image: url('https://media.geeksforgeeks.org/wp-content/uploads/20231218222854/1.png');
+			background-repeat: repeat;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;;
+			text-transform: uppercase;
+			color: white;
+
 		}
 	</style>";
 }
