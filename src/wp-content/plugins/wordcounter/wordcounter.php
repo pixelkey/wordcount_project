@@ -79,18 +79,21 @@ function display_header($atts)
 	$Art = strip_tags($Art);
 	$count = str_word_count($Art);
 
+
 	$counter = '
 	<div class="wcount">Article word count is: <br><span id="counter" class= "wnumber">0</span></div>
     <script type="text/javascript">
         var counterElement = document.getElementById("counter");
         var counter = 0;
         var maxCount = ' . $count . ';
-        var interval = 100;
+        var duration = 2000;
+
+		var interval = Math.max(1, Math.floor(duration / maxCount));
 
         var timer = setInterval(function() {
-            counterElement.textContent = counter;
             counter++;
-            if (counter > maxCount) {
+			counterElement.textContent = counter;
+            if (counter >= maxCount) {
                 clearInterval(timer);
             }
         }, interval);
@@ -115,7 +118,7 @@ function count_style()
 			background-color: #f1f1f1;
 			padding-top: 10px;
 			margin-bottom: 0px;
-			
+			color: #000;
 		}
 	</style>";
 }
