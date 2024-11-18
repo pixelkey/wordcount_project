@@ -12,13 +12,6 @@ Version: 0.0.1
 Author URI: http://google.com
 */
 
-function enqueue_custom_counter_styles()
-{
-	wp_enqueue_style('custom-counter-styles', plugin_dir_url(__FILE__) . 'public/css/blackgrey.css');
-}
-add_action('wp_enqueue_scripts', 'enqueue_custom_counter_styles');
-
-
 function word_count()
 {
 	$content = get_the_content();
@@ -32,13 +25,30 @@ function word_count()
 
 function display_header($atts)
 {
+
+	$atts = shortcode_atts(array(
+		'style' => 'bluesky',
+	), $atts, 'word_counter');
+
+	$style = $atts['style'];
+
+	if ($style == 'bluesky') {
+		wp_enqueue_style('custom-counter-styles', plugin_dir_url(__FILE__) . 'public/css/bluesky.css');
+	} elseif ($style == 'blackgrey') {
+		wp_enqueue_style('custom-counter-styles2', plugin_dir_url(__FILE__) . 'public/css/blackgrey.css');
+	} elseif ($style == 'blackwhite') {
+		wp_enqueue_style('custom-counter-styles3', plugin_dir_url(__FILE__) . 'public/css/blackwhite.css');
+	} else {
+		wp_enqueue_style('custom-counter-styles', plugin_dir_url(__FILE__) . 'public/css/bluesky.css');
+	}
+
 	$Art = get_the_content();
 	$Art = strip_tags($Art);
 	$count = str_word_count($Art);
 
 
 	$counter = '
-	<div class="wcount">Article word count is: <br><span id="counter" class= "wnumber">0</span></div>
+	<div class="wcount">Word Count <br><hr><span id="counter" class= "wnumber">0</span></div>
     <script type="text/javascript">
         var counterElement = document.getElementById("counter");
         
