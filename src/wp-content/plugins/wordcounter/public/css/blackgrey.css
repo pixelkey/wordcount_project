@@ -7,6 +7,9 @@
     padding-top     : 10px;
     margin-bottom   : 0px;
     color           : black;
+    border-radius   : 46px;
+    box-shadow      : -28px -28px 55px #c8c8c8,
+        28px 28px 55px #ffffff;
 }
 
 hr {

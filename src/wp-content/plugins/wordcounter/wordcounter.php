@@ -48,7 +48,7 @@ function display_header($atts)
 
 
 	$counter = '
-	<div class="wcount">Word Count <br><hr><span id="counter" class= "wnumber">0</span></div>
+	<div class="card"><div class="bg"><div class="wcount">Word Count <br><hr><span id="counter" class= "wnumber">0</span></div></div><div class="blob"></div></div>
     <script type="text/javascript">
         var counterElement = document.getElementById("counter");
         
