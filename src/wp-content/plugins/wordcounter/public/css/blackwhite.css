@@ -9,6 +9,7 @@
     background   : #000000;
     box-shadow   : -9px -9px 18px #a4a4a4,
         9px 9px 18px #ffffff;
+    overflow: hidden;
 }
 
 hr {
@@ -24,6 +25,4 @@ hr {
     color         : rgb(0, 0, 0);
     border-radius : 6px;
     background    : linear-gradient(315deg, rgb(57, 143, 177), rgb(188, 213, 224));
-
-
 }
