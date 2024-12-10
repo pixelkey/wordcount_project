@@ -3,11 +3,14 @@
     font-size       : 40px;
     text-align      : center;
     border-style    : inset;
-    background-color: #f1f1f1;
+    background-color: #9898989d;
     padding-top     : 10px;
     margin-bottom   : 0px;
     color           : black;
     border-radius   : 46px;
+    height          : 240px;
+    width           : 350px;
+    z-index         : 1111;
     box-shadow      : 5px 5px 15px #c8c8c8;
     /* -28px -28px 55px #c8c8c8,
         28px 28px 55px #ffffff;*/
@@ -29,6 +32,7 @@ hr {
     animation                : mymove 50s infinite;
     animation-timing-function: linear;
     background-repeat        : repeat;
+    background-clip          : text;
     -webkit-background-clip  : text;
     -webkit-text-fill-color  : transparent;
 }

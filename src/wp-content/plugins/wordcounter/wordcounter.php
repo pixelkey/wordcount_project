@@ -26,10 +26,10 @@ function display_header($atts)
 	if (isset($_POST['selected_style']) && in_array($_POST['selected_style'], $allowed_styles)) {
 		$style = $_POST['selected_style'];
 	} else {
-		$style = 'bluesky';
+		$style = '';
 	}
 
-	wp_enqueue_style('custom-counter-styles', plugin_dir_url(__FILE__) . 'public/css/' . $style . '.css');
+	wp_enqueue_style('custom-counter-styles', plugin_dir_url(__FILE__) . 'public/scss/' . $style . '.css');
 
 	$content = get_the_content();
 	$stripped_content = strip_tags($content);

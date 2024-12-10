@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         link.id = linkId;
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = styleSelectorData.pluginBaseUrl + 'public/css/' + style + '.css';
+        link.href = styleSelectorData.pluginBaseUrl + 'public/scss/' + style + '.css';
         link.media = 'all';
         document.getElementsByTagName('head')[0].appendChild(link);
     }
