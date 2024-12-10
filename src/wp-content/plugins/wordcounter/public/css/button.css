@@ -1,4 +1,4 @@
-.button {
+/* .button {
     background-color   : #000000;
     color              : rgb(255, 255, 255);
     border             : inset;
@@ -11,8 +11,21 @@
     width              : 50%;
 
 }
+*/
 
-.button:hover {
-    background-color: #000000;
-    color           : white;
+.button {
+    display      : flex;
+    align-items  : center;
+    border-radius: 100px;
+    padding      : 14px 16px;
+    margin       : 5px 0;
+    cursor       : pointer;
+    transition   : .3s;
+}
+
+.button:hover,
+.button:focus-within,
+.button:active {
+    background: hsl(0, 0%, 0%);
+    color     : aliceblue;
 }
