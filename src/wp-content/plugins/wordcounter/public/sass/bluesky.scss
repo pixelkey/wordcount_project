@@ -10,8 +10,8 @@
     align-items     : center;
     justify-content : center;
     box-shadow      : 5px 5px 15px #bebebe;
-    /* ,-5px -5px 15px #ffffff; */
-    background-color: rgb(0, 0, 0);
+    /* ,-5px -5px 15px #ffffff; or 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;*/
+    background-color: rgb(125, 255, 255);
     font-family     : Georgia;
     font-size       : 40px;
     ;
@@ -29,7 +29,6 @@
     border-radius  : 46px;
     overflow       : hidden;
     outline        : 2px solid rgb(0, 0, 0);
-
 }
 
 .blob {
@@ -40,41 +39,36 @@
     width           : 200px;
     height          : 250px;
     border-radius   : 46px;
-    background-color: #6aff00;
+    background-color: #0066ff;
     opacity         : 1;
-    filter          : blur(15px);
+    filter          : blur(12px);
     animation       : blob-bounce 5s infinite ease;
 }
 
 .wcount {
 
-    text-align             : center;
-    border-style           : inset;
-    background             : linear-gradient(rgb(255, 255, 255), rgb(132, 255, 0));
+    text-align  : center;
+    border-style: inset;
+
+    padding-top            : 10px;
+    margin-bottom          : 0px;
+    background             : linear-gradient(rgb(0, 255, 255), rgb(8, 0, 255));
     -webkit-background-clip: text;
     background-clip        : text;
     -webkit-text-fill-color: transparent;
-    padding-top            : 10px;
-    margin-bottom          : 0px;
-
 }
 
 hr {
-    border: 2px solid #e0ffc9;
+    border: 2px solid rgb(16, 141, 141);
     width : 85%;
 }
 
 
 .wnumber {
-    font-family: Copperplate, fantasy;
-    font-size  : 80px;
-    text-align : center;
-
-    padding-bottom         : 10px;
-    background             : linear-gradient(rgb(255, 255, 255), rgb(132, 255, 0));
-    -webkit-background-clip: text;
-    background-clip        : text;
-    -webkit-text-fill-color: transparent;
+    font-family   : Copperplate, fantasy;
+    font-size     : 80px;
+    text-align    : center;
+    padding-bottom: 10px;
 }
 
 
