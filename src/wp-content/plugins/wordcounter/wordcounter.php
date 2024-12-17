@@ -15,7 +15,7 @@ Author URI: http://google.com
 
 function word_count()
 {
-	wp_enqueue_scripts("customJS", get_template_directory_uri() . "/js/wordcount.js");
+	wp_enqueue_scripts("customJS", get_template_directory_uri() . "/js/backend/wordcount.js");
 	return $word_count;
 }
 function display_header($atts)
@@ -29,13 +29,13 @@ function display_header($atts)
 		$style = '';
 	}
 
-	wp_enqueue_style('custom-counter-styles', plugin_dir_url(__FILE__) . 'public/scss/' . $style . '.css');
+	wp_enqueue_style('custom-counter-styles', plugin_dir_url(__FILE__) . 'public/css/' . $style . '.css');
 
 	$content = get_the_content();
 	$stripped_content = strip_tags($content);
 	$word_count = str_word_count($stripped_content);
 
-	wp_enqueue_script('displaywordcount', plugin_dir_url(__FILE__) . 'public/js/displaywordcount.js', array(), '1.0', true);
+	wp_enqueue_script('displaywordcount', plugin_dir_url(__FILE__) . 'assets/js/frontend/displaywordcount.js', array(), '1.0', true);
 
 	wp_localize_script('displaywordcount', 'counterData', array(
 		'maxCount' => $word_count,
@@ -61,9 +61,9 @@ function select_style()
 	$allowed_styles = array('bluesky', 'blackgrey', 'blackwhite', 'blackneon');
 
 	$current_style = 'bluesky';
-	wp_enqueue_script('style-selector', plugin_dir_url(__FILE__) . 'public/js/selectstyle.js', array(), '1.0', true);
+	wp_enqueue_script('style-selector', plugin_dir_url(__FILE__) . 'assets/js/backend/selectstyle.js', array(), '1.0', true);
 
-	wp_enqueue_style('button-styles', plugin_dir_url(__FILE__) . 'public/css/button.css');
+	wp_enqueue_style('button-styles', plugin_dir_url(__FILE__) . 'assets/css/frontend/button.css');
 	wp_localize_script('style-selector', 'styleSelectorData', array(
 		'pluginBaseUrl' => plugin_dir_url(__FILE__),
 	));
