@@ -64,7 +64,7 @@ function select_style()
 	$current_style = 'bluesky';
 	wp_enqueue_script('style-selector', plugin_dir_url(__FILE__) . 'public/js/selectstyle.js', array(), '1.0', true);
 
-	wp_enqueue_style('button-styles', plugin_dir_url(__FILE__) . 'assets/css/frontend/button.css');
+	wp_enqueue_style('button-styles', plugin_dir_url(__FILE__) . 'assets/sass/frontend/button.css');
 	wp_localize_script('style-selector', 'styleSelectorData', array(
 		'pluginBaseUrl' => plugin_dir_url(__FILE__),
 	));
