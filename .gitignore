@@ -100,8 +100,8 @@ src/wp-content/plugins/wordcounter/assets/css/*
 
 # Ignore all compiled files
 
-src/wp-content/plugins/wordcounter/public/js/*
 src/wp-content/plugins/wordcounter/public/css/*
+src/wp-content/plugins/wordcounter/public/js/*
 
 # Ignore all unnessary files
 
