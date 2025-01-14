@@ -93,3 +93,16 @@ docker/certs
 # add your own entries here
 
 !src/wp-content/plugins/wordcounter
+
+# Igonre old css folder/file from theme
+
+src/wp-content/plugins/wordcounter/assets/css/*
+
+# Ignore all compiled files
+
+src/wp-content/plugins/wordcounter/public/js/*
+src/wp-content/plugins/wordcounter/public/css/*
+
+# Ignore all unnessary files
+
+src/wp-content/plugins/wordcounter/commentsofphpfiles.txt
