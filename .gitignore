@@ -126,6 +126,6 @@
 # #Ignore all files Except wordcount plugin, readme, and gitignore files
 
 *
-! src/wp-content/plugins/wordcounter/**
+!src/wp-content/plugins/wordcounter/**
 !.gitignore
 !README.md
