@@ -106,3 +106,9 @@ src/wp-content/plugins/wordcounter/public/*
 
 src/wp-content/plugins/wordcounter/commentsofphpfiles.txt
 oldreadme.md
+
+#Do not ignore the readme file
+!README.md
+
+# Do not ignore the Wordcount plugin file
+!src/wp-content/plugins/wordcounter/**

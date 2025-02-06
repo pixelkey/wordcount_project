@@ -1,4 +1,3 @@
-
 ## Project Overview
 
 WordPress Docker-based Setup
