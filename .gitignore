@@ -114,8 +114,8 @@ oldreadme.md
 !src/wp-content/plugins/wordcounter/**
 
 #Ignoring ALL files in the root directory
-.devcontainer/*
-docker/*
+.devcontainer/**
+docker/**
 .gitattributes
 .squash.yml
 copy_templates.sh
