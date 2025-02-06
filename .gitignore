@@ -135,3 +135,6 @@
 # Allow .gitignore and README.md
 !.gitignore
 !README.md
+
+# Ignore the public file in the wordcounter plugin
+src/wp-content/plugins/wordcounter/public/**
