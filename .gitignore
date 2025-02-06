@@ -137,4 +137,4 @@
 !README.md
 
 # Ignore the public file in the wordcounter plugin
-src/wp-content/plugins/wordcounter/public/**
+src/wp-content/plugins/wordcounter/public/
