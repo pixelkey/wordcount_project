@@ -126,7 +126,9 @@
 *
 
 # Allow only the wordcounter plugin folder
-
+!src/
+!src/wp-content/
+!src/wp-content/plugins/
 !src/wp-content/plugins/wordcounter/
 !src/wp-content/plugins/wordcounter/**
 

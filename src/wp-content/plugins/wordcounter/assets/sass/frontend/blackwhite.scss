@@ -1,0 +1,27 @@
+.wcount {
+    font-family  : Georgia;
+    font-size    : 40px;
+    text-align   : center;
+    padding-top  : 10px;
+    margin-bottom: 0px;
+    color        : rgba(255, 255, 255, 0.938);
+    border-radius: 46px;
+    background   : #000000;
+    box-shadow   : -9px -9px 18px #a4a4a4,
+        9px 9px 18px #ffffff;
+    overflow: hidden;
+}
+
+hr {
+    border: 1px solid rgb(203, 176, 202);
+    width : 80%;
+}
+
+.wnumber {
+    font-family   : Copperplate, fantasy;
+    font-size     : 75px;
+    text-align    : center;
+    padding-bottom: 10px;
+    color         : rgb(255, 255, 255);
+    border-radius : 6px;
+}

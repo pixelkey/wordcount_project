@@ -1,0 +1,31 @@
+/* .button {
+    background-color   : #000000;
+    color              : rgb(255, 255, 255);
+    border             : inset;
+    padding            : 15px 32px;
+    text-align         : center;
+    display            : inline-block;
+    font-size          : 16px;
+    transition-duration: 0.4s;
+    box-shadow         : 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width              : 50%;
+
+}
+*/
+
+.button {
+    display      : flex;
+    align-items  : center;
+    border-radius: 100px;
+    padding      : 14px 16px;
+    margin       : 5px 0;
+    cursor       : pointer;
+    transition   : .3s;
+}
+
+.button:hover,
+.button:focus-within,
+.button:active {
+    background: hsl(0, 0%, 0%);
+    color     : aliceblue;
+}
