@@ -122,12 +122,14 @@
 # docker-compose.yml
 # dockerfile
 # entrypoint-wordpress.sh
-
 # Ignore everything
 *
 
-# Allow only the following files/folders
+# Allow only the wordcounter plugin folder
+
 !src/wp-content/plugins/wordcounter/
 !src/wp-content/plugins/wordcounter/**
+
+# Allow .gitignore and README.md
 !.gitignore
 !README.md
