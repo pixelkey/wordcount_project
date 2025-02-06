@@ -123,9 +123,11 @@
 # dockerfile
 # entrypoint-wordpress.sh
 
-# #Ignore all files Except wordcount plugin, readme, and gitignore files
-
+# Ignore everything
 *
+
+# Allow only the following files/folders
+!src/wp-content/plugins/wordcounter/
 !src/wp-content/plugins/wordcounter/**
 !.gitignore
 !README.md
