@@ -1,117 +1,131 @@
-# -----------------------------------------------------------------
-# By default all files are ignored.  You'll need to whitelist
-# any mu-plugins, plugins, or themes you want to include in the repo.
-#
-# ignore everything in the root except the "wp-content" directory.
-/*
-src/*
+# # -----------------------------------------------------------------
+# # By default all files are ignored.  You'll need to whitelist
+# # any mu-plugins, plugins, or themes you want to include in the repo.
+# #
+# # ignore everything in the root except the "wp-content" directory.
+# /*
+# src/*
 
-# ignore everything in the "wp-content" directory, except:
-# mu-plugins, plugins, and themes directories
-!src/wp-content/
-src/wp-content/*
-!src/wp-content/mu-plugins/
-!src/wp-content/plugins/
-!src/wp-content/themes/
+# # ignore everything in the "wp-content" directory, except:
+# # mu-plugins, plugins, and themes directories
+# !src/wp-content/
+# src/wp-content/*
+# !src/wp-content/mu-plugins/
+# !src/wp-content/plugins/
+# !src/wp-content/themes/
 
-# ignore all mu-plugins, plugins, and themes
-# unless explicitly whitelisted at the end of this file
-src/wp-content/mu-plugins/*
-src/wp-content/plugins/*
-src/wp-content/themes/*
+# # ignore all mu-plugins, plugins, and themes
+# # unless explicitly whitelisted at the end of this file
+# src/wp-content/mu-plugins/*
+# src/wp-content/plugins/*
+# src/wp-content/themes/*
 
-# ignore all files starting with . or ~
-.*
-~*
+# # ignore all files starting with . or ~
+# .*
+# ~*
 
-# ignore node dependency directories (used by grunt)
-node_modules/
+# # ignore node dependency directories (used by grunt)
+# node_modules/
 
-# ignore OS generated files
-ehthumbs.db
-Thumbs.db
+# # ignore OS generated files
+# ehthumbs.db
+# Thumbs.db
 
-# ignore Editor files
-*.sublime-project
-*.sublime-workspace
-*.komodoproject
+# # ignore Editor files
+# *.sublime-project
+# *.sublime-workspace
+# *.komodoproject
 
-# ignore log files and databases
-*.log
-*.sql
-*.sqlite
+# # ignore log files and databases
+# *.log
+# *.sql
+# *.sqlite
 
-# ignore compiled files
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+# # ignore compiled files
+# *.com
+# *.class
+# *.dll
+# *.exe
+# *.o
+# *.so
 
-# ignore packaged files
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-*.auth
+# # ignore packaged files
+# *.7z
+# *.dmg
+# *.gz
+# *.iso
+# *.jar
+# *.rar
+# *.tar
+# *.zip
+# *.auth
 
-# -------------------------
-# BEGIN Whitelisted Files
-# -------------------------
+# # -------------------------
+# # BEGIN Whitelisted Files
+# # -------------------------
 
-# track these files, if they exist
-!.gitattributes
-!.gitignore
-!.editorconfig
-!README.md
-!CHANGELOG.md
-!composer.json
-!*.yml
-!*.sh
-!dockerfile
-!dockerfile.squash
-!src
-!docker
-!docker/config/apache/.htaccess
-!docker/config/wordpress/wp-config.php
-!setup_ssl.bat
-!.devcontainer
+# # track these files, if they exist
+# !.gitattributes
+# !.gitignore
+# !.editorconfig
+# !README.md
+# !CHANGELOG.md
+# !composer.json
+# !*.yml
+# !*.sh
+# !dockerfile
+# !dockerfile.squash
+# !src
+# !docker
+# !docker/config/apache/.htaccess
+# !docker/config/wordpress/wp-config.php
+# !setup_ssl.bat
+# !.devcontainer
 
-!docker/assets/packages/*
-# don't ignore *.zip files in any docker/assets/packages directory
-!docker/assets/packages/**/*.zip
+# !docker/assets/packages/*
+# # don't ignore *.zip files in any docker/assets/packages directory
+# !docker/assets/packages/**/*.zip
 
-# Ignore certs folder from docker
-docker/certs
+# # Ignore certs folder from docker
+# docker/certs
 
-# track these mu-plugins, plugins, and themes e.g: !src/wp-content/themes/twentytwentyfour
-# add your own entries here
+# # track these mu-plugins, plugins, and themes e.g: !src/wp-content/themes/twentytwentyfour
+# # add your own entries here
 
-!src/wp-content/plugins/wordcounter
+# !src/wp-content/plugins/wordcounter
 
-# Igonre old css folder/file from theme
+# # Igonre old css folder/file from theme
 
-src/wp-content/plugins/wordcounter/assets/css/*
+# src/wp-content/plugins/wordcounter/assets/css/*
 
-# Ignore all compiled files
+# # Ignore all compiled files
 
-src/wp-content/plugins/wordcounter/public/*
+# src/wp-content/plugins/wordcounter/public/*
 
-# Ignore all unnessary files
+# # Ignore all unnessary files
 
-src/wp-content/plugins/wordcounter/commentsofphpfiles.txt
-oldreadme.md
+# src/wp-content/plugins/wordcounter/commentsofphpfiles.txt
+# oldreadme.md
 
-#Do not ignore the readme file
-!README.md
+# #Do not ignore the readme file
+# !README.md
 
-# Do not ignore the Wordcount plugin file
-!src/wp-content/plugins/wordcounter/**
+# # Do not ignore the Wordcount plugin file
+# !src/wp-content/plugins/wordcounter/**
 
-#Ignoring ALL files in the root directory
+# #Ignoring ALL files in the root directory
+# .devcontainer/**
+# docker/**
+# .gitattributes
+# .squash.yml
+# copy_templates.sh
+# docker-compose.yml
+# dockerfile
+# entrypoint-wordpress.sh
+
+# #Ignore all files Except wordcount plugin, readme, and gitignore files
+
 *
+!wordcount-plugin-folder/
+!.gitignore
+!README.md

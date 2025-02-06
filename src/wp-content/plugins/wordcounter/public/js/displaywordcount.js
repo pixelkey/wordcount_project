@@ -1,2 +1,0 @@
-document.addEventListener("DOMContentLoaded",(function(){var t=document.getElementById("counter");if(t){var n=parseInt(counterData.maxCount,10),e=null,o=function(t){return t<=1?function(t){return t}:function(t){return t*t*t}}(n);requestAnimationFrame((function r(a){e||(e=a);var u=a-e,i=Math.min(u/1e3,1),c=o(i),m=Math.floor(c*(n-1))+1;m=Math.min(m,n),t.textContent=m.toLocaleString(),u<1e3?requestAnimationFrame(r):t.textContent=n.toLocaleString()}))}}));
-//# sourceMappingURL=displaywordcount.js.map
